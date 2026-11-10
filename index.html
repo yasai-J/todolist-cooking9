@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffdf9">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="stylesheet" href="./style.css">
+<title>MY LITTLE DAYS</title>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="icon-btn" aria-label="ホーム" id="homeTop">⌂</button>
+    <div class="brand"><span class="leaf">✿</span><span>MY LITTLE DAYS</span><span class="leaf">✿</span></div>
+    <button class="icon-btn" aria-label="記録" id="recordsTop">▦</button>
+  </header>
+
+  <main>
+    <section class="page active" id="page-home">
+      <section class="today-week" aria-label="今週の達成度">
+        <div class="week-circles" id="weekCircles"></div>
+      </section>
+
+      <section class="bento-section">
+        <div class="bento-heading"><span>今週のお弁当</span><span id="weekRange"></span></div>
+        <div class="bento-dashboard">
+          <div class="bento-main">
+            <div class="bento-box" id="bentoBox" aria-label="今週のお弁当"></div>
+            <div class="bento-picker" role="group" aria-label="お弁当の種類">
+              <button type="button" class="bento-choice active" data-bento="onigiri" aria-pressed="true">🍙 おにぎり弁当</button>
+              <button type="button" class="bento-choice" data-bento="sandwich" aria-pressed="false">🥪 サンドイッチ弁当</button>
+            </div>
+          </div>
+          <aside class="chef-rate">
+            <img src="chef_base.png" alt="白いシェフ" class="chef">
+            <div class="rate-copy"><span>本日の<br>達成率</span><strong id="todayPct">0%</strong><small id="todayCount">0 / 0 完了</small></div>
+          </aside>
+        </div>
+        <p class="bento-note" id="bentoNote">DAILY ROUTINEを100％達成した日数に応じて、お弁当が完成していくよ。</p>
+      </section>
+
+      <section class="todo-panel">
+        <div class="panel-heading"><span class="check-icon">✓</span><h2>TO DO! LET'S CHECK!</h2><button id="addTask" class="add-btn">＋ 追加</button></div>
+        <div id="homeTasks"></div>
+      </section>
+
+      <section class="memo-panel">
+        <div class="panel-heading"><span class="memo-icon">▤</span><h2>メモ掲示板</h2><button id="addMemo" class="memo-add" aria-label="メモを追加">＋</button></div>
+        <div class="memo-grid" id="memoGrid"></div>
+      </section>
+    </section>
+
+    <section class="page" id="page-records">
+      <div class="page-title"><span>YOUR LITTLE HISTORY</span><h1>きろく</h1></div>
+      <section class="simple-card">
+        <h2>今月のチャレンジ</h2><div class="month-rate"><strong id="monthPct">0%</strong><span>月間達成率</span></div>
+        <div class="bar"><i id="monthBar"></i></div><div id="unlockText" class="hint"></div>
+      </section>
+      <section class="simple-card"><h2>お弁当の記録</h2><div id="bentoHistory" class="history-list"></div></section>
+      <section class="simple-card"><h2>タスクアーカイブ</h2><p class="hint">HOMEから移動したタスクを保管します。</p><div id="completedTasks"></div></section>
+      <section class="simple-card"><h2>バックアップ</h2><div class="backup-actions"><button id="exportData">JSONを書き出す</button><label class="file-btn">JSONを読み込む<input type="file" id="importData" accept="application/json"></label></div></section>
+    </section>
+  </main>
+  <nav class="bottom-nav"><button class="nav-item active" data-page="home"><b>⌂</b>今日</button><button class="nav-item" data-page="records"><b>▦</b>きろく</button></nav>
+</div>
+
+<dialog id="taskDialog" class="dialog">
+<form method="dialog" id="taskForm">
+ <div class="dialog-title"><h2 id="dialogTitle">タスクを追加</h2><button type="button" id="closeDialog">×</button></div>
+ <label>タスク名<input id="taskName" maxlength="60" required placeholder="例：ストレッチ"></label>
+ <label>カテゴリー<select id="taskCategory"><option value="daily">DAILY ROUTINE</option><option value="weekly">WEEKLY ROUTINE</option><option value="deadline">DEADLINE</option><option value="wish">WISH LIST</option></select></label>
+ <div id="dailyFields"><label>実施する曜日<div class="weekday-picks" id="weekdayPicks"></div></label></div>
+ <div id="deadlineFields" hidden><label>期限<input id="taskDue" type="date"></label></div>
+ <div class="dialog-actions"><button type="button" id="deleteTask" class="soft-btn" hidden>削除</button><button type="submit" class="main-btn">保存する</button></div>
+</form>
+</dialog>
+<dialog id="taskActionDialog" class="dialog">
+ <div class="dialog-title"><h2 id="taskActionTitle">タスクの操作</h2><button type="button" id="closeTaskAction">×</button></div>
+ <p class="hint">このタスクに対する操作を選んでください。</p>
+ <div class="dialog-actions vertical"><button id="actionEdit" class="soft-btn">編集する</button><button id="actionArchive" class="main-btn">HOMEから非表示にする</button></div>
+</dialog>
+<dialog id="archiveConfirm" class="dialog"><h2>HOMEから非表示</h2><p>本当にHOME画面のリストから消して良いか？</p><div class="dialog-actions"><button id="cancelArchive" class="soft-btn">キャンセル</button><button id="confirmArchive" class="main-btn">移動する</button></div></dialog>
+<dialog id="memoDialog" class="dialog">
+ <form method="dialog" id="memoForm"><div class="dialog-title"><h2 id="memoTitle">メモを追加</h2><button type="button" id="closeMemo">×</button></div>
+ <label>メモ<textarea id="memoText" maxlength="120" rows="3" placeholder="忘れたくないことを書いてね"></textarea></label>
+ <div class="dialog-actions"><button type="button" id="deleteMemo" class="soft-btn" hidden>削除</button><button type="submit" class="main-btn">保存する</button></div></form>
+</dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="./app.js"></script>
+</body></html>

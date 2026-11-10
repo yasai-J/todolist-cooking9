@@ -1,0 +1,90 @@
+*{box-sizing:border-box} :root{--ink:#355d7d;--blue:#bfe3f5;--blue2:#e8f5fc;--cream:#fffdf8;--line:#8db7d2;--green:#a8c99b;--muted:#8294a1;--shadow:0 4px 14px #a9c8d51c}
+body{margin:0;background:#fffefa;color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:15px}
+button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app-shell{max-width:980px;margin:auto;padding:0 18px 88px}
+.topbar{height:70px;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;border-bottom:1px solid #e8f0f2}
+.icon-btn{border:0;background:none;font-size:30px;color:#47769a}.brand{display:flex;align-items:center;justify-content:center;gap:12px;font-size:clamp(18px,3vw,27px);font-weight:900;letter-spacing:3px}.leaf{color:#9bc58b;font-size:22px}
+.page{display:none}.page.active{display:block}.today-week{display:grid;grid-template-columns:minmax(220px, .85fr) 2fr;gap:18px;align-items:center;padding:20px 4px 16px}
+.chef-rate{display:flex;align-items:center;gap:8px;min-width:0}.chef{width:108px;height:116px;object-fit:contain}.rate-copy{display:flex;flex-direction:column;align-items:center;gap:3px;background:#e9f5fc;border-radius:24px;padding:9px 16px;min-width:94px}.rate-copy span{font-weight:800;line-height:1.2;text-align:center}.rate-copy strong{font-size:32px;line-height:1.2}.rate-copy small{font-size:11px;color:var(--muted)}
+.week-circles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(4px,1.5vw,14px);align-items:end}.day-progress{display:flex;flex-direction:column;align-items:center;gap:7px;font-weight:800}.day-circle{width:clamp(34px,6.5vw,58px);aspect-ratio:1;border:3px solid #86abc4;border-radius:50%;position:relative;overflow:hidden;background:#fff}.day-water{position:absolute;z-index:1;bottom:0;left:0;right:0;height:var(--fill);background:linear-gradient(#9bdcf3,#65c4e8);transition:height .5s ease}.day-date{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-size:clamp(12px,2.3vw,17px);font-weight:800;line-height:1;color:#355d7d;text-shadow:0 1px 3px #fff,1px 0 2px #fff;pointer-events:none}.day-circle.today{outline:3px solid #f4d77c;outline-offset:2px}.day-percent{font-size:10px;color:#7d98a9}
+.bento-section{padding:5px 0 18px}.bento-heading{display:flex;justify-content:space-between;align-items:center;color:#6e99b4;font-size:12px;font-weight:900;letter-spacing:2px;padding:0 10px 7px}.bento-heading span:last-child{letter-spacing:0}
+.bento-wrap{position:relative;padding:4px 84px 4px 4px;max-width:760px;margin:auto}.bento-box{background:#f5d9ad;border:8px solid #e5bd8e;border-radius:38px;padding:12px;display:grid;grid-template-columns:1.15fr 1.15fr 1fr 1fr;grid-template-rows:105px 105px;gap:7px;box-shadow:inset 0 0 0 4px #fff3df,0 5px 0 #d6a978}
+.bento-slot{border:3px solid #d7a978;border-radius:17px;background:#f9e8d0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-width:0}.bento-slot .food{font-size:clamp(25px,4vw,43px);filter:drop-shadow(1px 2px 1px #8a633b35);transition:opacity .3s}.bento-slot.empty .food{opacity:0}.bento-slot .slot-day{position:absolute;bottom:3px;right:6px;font-size:9px;color:#b28a63;opacity:.7}.bento-slot.partial:after{content:"";position:absolute;inset:0;background:#fff9;pointer-events:none}.bento-stamp{position:absolute;right:0;top:50%;transform:translateY(-50%);border:3px solid #a9c8dc;border-radius:40% 48% 45% 40%;padding:14px 9px;text-align:center;font-weight:900;line-height:1.5;background:#fffefa;font-size:16px}.bento-stamp span{font-size:22px}.bento-note{text-align:center;color:#91a4ae;font-size:11px;margin:14px 0 0}
+.todo-panel{background:#e6f4fc;border:2px solid #d2eafa;border-radius:28px;padding:10px 14px 12px;margin:2px 0 14px;box-shadow:var(--shadow)}.panel-heading{display:flex;align-items:center;gap:10px;margin-bottom:7px}.panel-heading h2{font-size:clamp(16px,2.5vw,22px);letter-spacing:1.2px;margin:0;font-weight:900}.check-icon{border:3px solid #4d7da0;border-radius:8px;width:38px;height:38px;display:grid;place-items:center;font-size:26px;font-weight:900}.add-btn,.memo-add{margin-left:auto;border:0;border-radius:20px;background:#fff;color:#4b7b9d;padding:8px 13px;font-weight:800}
+.task-group{background:#fff;border-radius:16px;overflow:hidden;margin:5px 0}.task-group-title{padding:5px 12px 2px;font-size:10px;color:#7aa3bc;font-weight:900;letter-spacing:1px}.task-row{display:flex;align-items:center;gap:7px;padding:5px 10px;border-top:1px solid #e1f0f7;min-height:40px}.task-row:first-of-type{border-top:0}.drag-handle{border:0;background:none;color:#8daabc;font-size:19px;padding:2px;touch-action:none}.task-check{width:18px;height:18px;accent-color:#67b9dc;flex:none}.task-name{flex:1;min-width:0;overflow-wrap:anywhere}.task-name.done{text-decoration:line-through;color:#9aabb5}.task-meta{font-size:10px;color:#94a8b4}.task-edit{border:0;background:none;font-size:20px;color:#7198b2}.empty-state{background:#fff;border-radius:15px;padding:18px;text-align:center;color:#91a5b1;font-size:13px}
+.memo-panel{border:2px solid #a9cce1;border-radius:25px;padding:13px 16px 16px;margin-bottom:20px}.memo-icon{font-size:28px}.memo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.memo-card{min-height:90px;border:0;border-radius:14px;padding:13px 10px;text-align:center;white-space:pre-wrap;overflow-wrap:anywhere;font-weight:700;line-height:1.55;box-shadow:0 3px 7px #a6c5d31c}.memo-card:nth-child(3n+1){background:#fff6cf}.memo-card:nth-child(3n+2){background:#fde9e9}.memo-card:nth-child(3n){background:#e3f1ff}.memo-empty{grid-column:1/-1;text-align:center;color:#93a6b0;padding:18px;font-size:12px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:10px;background:#fffefaee;border-top:1px solid #e6eef1;padding:8px 12px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(12px);z-index:10}.nav-item{border:0;background:none;display:flex;align-items:center;gap:7px;padding:8px 24px;border-radius:20px;color:#8ba1ae}.nav-item b{font-size:21px}.nav-item.active{background:#e8f5fc;color:#426e8d;font-weight:900}
+.page-title{padding:22px 5px 12px}.page-title span{font-size:11px;letter-spacing:2px;color:#8baabd}.page-title h1{margin:4px 0;font-size:27px}.simple-card{background:#fff;border:1px solid #e3edf1;border-radius:22px;padding:18px;margin:12px 0;box-shadow:var(--shadow)}.simple-card h2{margin:0 0 12px;font-size:18px}.month-rate{display:flex;align-items:baseline;gap:12px}.month-rate strong{font-size:32px}.month-rate span,.hint{color:#8da0aa;font-size:12px}.bar{height:10px;background:#edf3f5;border-radius:20px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;width:0;background:#8acde7;border-radius:20px}.history-list{display:grid;gap:8px}.history-row,.archive-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid #edf1f2}.archive-actions{display:flex;gap:6px}.archive-actions button,.backup-actions button,.file-btn{border:1px solid #d5e6ee;background:#f5fbfe;border-radius:12px;padding:7px 10px;font-size:12px;color:#4e7894}.backup-actions{display:flex;gap:8px;flex-wrap:wrap}.file-btn input{display:none}
+.dialog{border:0;border-radius:22px;padding:22px;width:min(92vw,440px);box-shadow:0 15px 50px #294b5c33;color:var(--ink)}.dialog::backdrop{background:#233e5066;backdrop-filter:blur(3px)}.dialog-title{display:flex;align-items:center;justify-content:space-between}.dialog-title h2{margin:0 0 16px}.dialog-title button{border:0;background:none;font-size:26px}.dialog label{display:block;font-size:13px;font-weight:700;margin:12px 0}.dialog input:not([type=checkbox]),.dialog select,.dialog textarea{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid #d8e6ec;border-radius:12px;background:#fff;font-size:16px}.weekday-picks{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.weekday-picks label{margin:0}.weekday-picks input{display:none}.weekday-picks span{display:inline-block;padding:7px 10px;border:1px solid #d7e7ee;border-radius:20px}.weekday-picks input:checked+span{background:#dff2fb}.dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}.dialog-actions.vertical{flex-direction:column}.main-btn,.soft-btn{border:0;border-radius:14px;padding:11px 15px;font-weight:800}.main-btn{background:#5b91b3;color:white}.soft-btn{background:#edf5f8;color:#527c96}.toast{position:fixed;bottom:84px;left:50%;transform:translate(-50%,10px);opacity:0;background:#345d78;color:white;padding:10px 18px;border-radius:20px;transition:.2s;z-index:30;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:650px){.app-shell{padding:0 12px 82px}.topbar{height:60px}.today-week{grid-template-columns:96px minmax(0,1fr);gap:7px;padding:10px 0 8px}.chef-rate{justify-content:flex-start;gap:2px}.chef{width:40px;height:48px}.rate-copy{padding:4px 5px;min-width:52px;border-radius:12px;gap:1px}.rate-copy span{font-size:9px}.rate-copy strong{font-size:19px}.rate-copy small{display:none}.week-circles{gap:2px}.day-circle{width:clamp(23px,7vw,31px);border-width:2px}.day-date{font-size:11px}.day-progress{gap:3px;font-size:10px}.bento-wrap{padding-right:0;padding-bottom:42px}.bento-box{padding:8px;gap:5px;border-width:6px;border-radius:25px;grid-template-rows:76px 76px}.bento-slot{border-width:2px;border-radius:12px}.bento-stamp{top:auto;bottom:0;right:8px;transform:none;padding:5px 14px;font-size:12px;border-width:2px}.bento-stamp span{display:none}.todo-panel{padding:9px 10px 10px;border-radius:22px}.panel-heading{gap:7px;margin-bottom:5px}.task-group{margin:4px 0;border-radius:14px}.task-group-title{padding:4px 10px 1px}.task-row{padding:4px 8px;min-height:38px;gap:6px}.task-check{width:18px;height:18px}.drag-handle{font-size:17px;padding:1px}.task-edit{font-size:18px}.check-icon{width:31px;height:31px;font-size:21px}.memo-grid{grid-template-columns:repeat(2,1fr);gap:8px}.memo-card{min-height:76px;font-size:13px}.task-meta{display:none}}
+@media(min-width:900px){.bento-box{grid-template-rows:130px 130px}.bento-wrap{max-width:820px}.today-week{padding-top:24px;padding-bottom:20px}.chef{width:125px;height:130px}}
+
+/* お弁当表示のみ：既存の週間水位カレンダーやHOME他要素には触れない */
+.bento-wrap{padding:4px 84px 4px 4px;max-width:760px;margin:auto;position:relative}
+.bento-box{display:block!important;width:100%!important;min-width:0!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;overflow:visible!important;min-height:0}
+.bento-art{display:block;width:100%;height:auto;max-height:440px;overflow:visible}
+.bento-food-layer{filter:drop-shadow(1px 3px 2px rgba(106,72,43,.16))}
+@media(max-width:600px){.bento-wrap{padding:4px 0 42px}.bento-art{max-height:300px}}
+@media(min-width:900px){.bento-wrap{max-width:820px}.bento-art{max-height:420px}}
+
+/* HOMEの週間達成表示と弁当をコンパクトにし、TO DOを見やすくする */
+@media(max-width:650px){
+  .today-week{align-items:center}
+  .bento-section{padding:2px 0 8px}
+  .bento-heading{padding:0 6px 3px;font-size:10px}
+  .bento-wrap{display:flex;justify-content:center;align-items:center;padding:0 0 25px;max-width:100%}
+  .bento-art{width:auto;height:168px;max-width:100%;max-height:none;margin:0 auto}
+  .bento-stamp{right:2px;bottom:0;padding:3px 9px;font-size:10px}
+  .bento-note{font-size:10px;margin:4px 0 0}
+}
+@media(min-width:651px){
+  .bento-wrap{display:flex;justify-content:center;align-items:center;padding:0 70px 4px 4px}
+  .bento-art{width:auto;height:230px;max-width:100%;max-height:none;margin:0 auto}
+}
+
+/* おにぎり弁当：元のクレヨン・水彩イラスト素材のみを重ねて表示 */
+.bento-stage{position:relative;display:block;width:100%;max-width:720px;height:230px;aspect-ratio:auto;margin:0 auto;flex:none;}
+.bento-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.bento-food{position:absolute;height:auto;object-fit:contain;max-height:66%;filter:drop-shadow(1px 2px 2px rgba(92,62,36,.12));}
+@media(max-width:650px){.bento-stage{width:100%;max-width:520px;height:168px;aspect-ratio:auto}.bento-food{max-height:66%}}
+@media(min-width:651px){.bento-stage{height:230px;width:100%;max-width:720px;aspect-ratio:auto}.bento-base{object-fit:fill}}
+
+
+/* HOME: お弁当を主役にし、シェフと本日の達成率を右側へ縦配置 */
+.today-week{display:block;padding:10px 4px 12px}
+.week-circles{width:100%;max-width:760px;margin:0 auto}
+.bento-section{padding:8px 0 16px}
+.bento-heading{font-size:clamp(15px,2vw,19px);letter-spacing:.08em;color:#527e9c;padding:0 8px 8px}
+.bento-dashboard{display:grid;grid-template-columns:minmax(0,4fr) minmax(112px,1fr);gap:12px;align-items:center;background:#fffdf8;border:2px solid #c5e2f1;border-radius:26px;padding:12px;box-shadow:var(--shadow)}
+.bento-main{min-width:0}
+.bento-box{display:flex;align-items:center;justify-content:center;min-width:0}
+.bento-stage-image{display:block;width:100%;height:auto;max-height:340px;object-fit:contain}
+.bento-picker{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0 0}
+.bento-choice{border:1.5px solid #c7dce8;border-radius:18px;background:#fff;padding:7px 12px;font-size:clamp(11px,1.5vw,14px);font-weight:800;color:#63849a}
+.bento-choice.active{background:#fff0f1;border-color:#ef9da8;color:#a75e67;box-shadow:0 0 0 2px #fde4e6 inset}
+.chef-rate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-width:0}
+.chef{width:clamp(64px,8vw,112px);height:auto;max-height:118px;object-fit:contain}
+.rate-copy{width:100%;min-width:0;padding:8px 5px;border-radius:20px;gap:4px}
+.rate-copy span{font-size:clamp(11px,1.3vw,15px)}
+.rate-copy strong{font-size:clamp(22px,3vw,34px)}
+.rate-copy small{font-size:10px;text-align:center}
+.bento-note{text-align:center;margin:8px 0 0;font-size:11px}
+@media(max-width:650px){
+ .today-week{padding:7px 0 9px}
+ .week-circles{gap:3px}
+ .day-progress{gap:4px}
+ .day-circle{width:clamp(25px,8vw,34px)}
+ .bento-section{padding:4px 0 12px}
+ .bento-heading{padding:0 4px 6px;font-size:14px}
+ .bento-dashboard{grid-template-columns:minmax(0,3.4fr) minmax(76px,1fr);gap:7px;padding:8px;border-radius:20px}
+ .bento-stage-image{max-height:210px}
+ .bento-picker{gap:5px;margin-top:6px}
+ .bento-choice{padding:6px 7px;font-size:10px;border-radius:14px}
+ .chef-rate{gap:5px}
+ .chef{width:54px;max-height:65px}
+ .rate-copy{padding:6px 3px;border-radius:14px;gap:2px}
+ .rate-copy span{font-size:10px}
+ .rate-copy strong{font-size:21px}
+ .rate-copy small{font-size:8px;display:block}
+ .bento-note{font-size:9px;margin-top:6px}
+}
+@media(min-width:900px){.bento-dashboard{padding:16px 20px}.bento-stage-image{max-height:400px}}
