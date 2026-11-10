@@ -2,7 +2,7 @@
 body{margin:0;background:#fffefa;color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:15px}
 button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app-shell{max-width:980px;margin:auto;padding:0 18px 88px}
 .topbar{height:70px;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;border-bottom:1px solid #e8f0f2}
-.icon-btn{border:0;background:none;font-size:30px;color:#47769a}.brand{display:flex;align-items:center;justify-content:center;gap:12px;font-size:clamp(18px,3vw,27px);font-weight:900;letter-spacing:3px}.leaf{color:#9bc58b;font-size:22px}
+.icon-btn{border:0;background:none;font-size:30px;color:#47769a}.brand{display:flex;align-items:center;justify-content:center;gap:clamp(4px,1vw,12px);font-size:clamp(13px,3vw,27px);font-weight:900;letter-spacing:clamp(0px,.25vw,3px);white-space:nowrap;min-width:0}.brand>span:nth-child(2){white-space:nowrap}.leaf{color:#9bc58b;font-size:22px}
 .page{display:none}.page.active{display:block}.today-week{display:grid;grid-template-columns:minmax(220px, .85fr) 2fr;gap:18px;align-items:center;padding:20px 4px 16px}
 .chef-rate{display:flex;align-items:center;gap:8px;min-width:0}.chef{width:108px;height:116px;object-fit:contain}.rate-copy{display:flex;flex-direction:column;align-items:center;gap:3px;background:#e9f5fc;border-radius:24px;padding:9px 16px;min-width:94px}.rate-copy span{font-weight:800;line-height:1.2;text-align:center}.rate-copy strong{font-size:32px;line-height:1.2}.rate-copy small{font-size:11px;color:var(--muted)}
 .week-circles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(4px,1.5vw,14px);align-items:end}.day-progress{display:flex;flex-direction:column;align-items:center;gap:7px;font-weight:800}.day-circle{width:clamp(34px,6.5vw,58px);aspect-ratio:1;border:3px solid #86abc4;border-radius:50%;position:relative;overflow:hidden;background:#fff}.day-water{position:absolute;z-index:1;bottom:0;left:0;right:0;height:var(--fill);background:linear-gradient(#9bdcf3,#65c4e8);transition:height .5s ease}.day-date{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-size:clamp(12px,2.3vw,17px);font-weight:800;line-height:1;color:#355d7d;text-shadow:0 1px 3px #fff,1px 0 2px #fff;pointer-events:none}.day-circle.today{outline:3px solid #f4d77c;outline-offset:2px}.day-percent{font-size:10px;color:#7d98a9}
@@ -88,3 +88,17 @@ button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.a
  .bento-note{font-size:9px;margin-top:6px}
 }
 @media(min-width:900px){.bento-dashboard{padding:16px 20px}.bento-stage-image{max-height:400px}}
+
+/* 記録タブ：月間水位カレンダー */
+.water-calendar-weekdays,.water-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;text-align:center}
+.water-calendar-weekdays{font-size:12px;font-weight:800;color:#7897aa;margin:4px 0 10px}
+.water-calendar{row-gap:12px}
+.water-calendar-day{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.water-calendar-circle{width:clamp(28px,8vw,48px);aspect-ratio:1;border:2px solid #86abc4;border-radius:50%;position:relative;overflow:hidden;background:linear-gradient(to top,#8bd3ed var(--fill),#fff calc(var(--fill) + 0%));display:grid;place-items:center}
+.water-calendar-circle:before{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--fill);background:linear-gradient(#9bdcf3,#65c4e8)}
+.water-calendar-circle span{position:relative;z-index:1;font-size:clamp(11px,2.7vw,15px);font-weight:800;color:#355d7d;text-shadow:0 1px 3px #fff,1px 0 2px #fff}
+.water-calendar-day small{font-size:9px;color:#7897aa;line-height:1.1}.water-calendar-day.today .water-calendar-circle{outline:3px solid #f4d77c;outline-offset:2px}.water-calendar-day.future{opacity:.42}.water-calendar-empty{min-height:1px}
+@media(max-width:650px){.water-calendar-weekdays,.water-calendar{gap:5px}.water-calendar{row-gap:10px}.water-calendar-day small{font-size:8px}.brand{font-size:clamp(12px,3.6vw,18px);letter-spacing:0;gap:4px}.brand .leaf{font-size:15px}}
+
+/* 週の途中でお弁当を変更できないことを示す */
+.bento-choice:disabled{opacity:1;cursor:default}

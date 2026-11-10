@@ -29,8 +29,8 @@
           <div class="bento-main">
             <div class="bento-box" id="bentoBox" aria-label="今週のお弁当"></div>
             <div class="bento-picker" role="group" aria-label="お弁当の種類">
-              <button type="button" class="bento-choice active" data-bento="onigiri" aria-pressed="true">🍙 おにぎり弁当</button>
-              <button type="button" class="bento-choice" data-bento="sandwich" aria-pressed="false">🥪 サンドイッチ弁当</button>
+              <button type="button" class="bento-choice active" data-bento="onigiri" aria-pressed="true" disabled>🍙 おにぎり弁当</button>
+              <button type="button" class="bento-choice" data-bento="sandwich" aria-pressed="false" disabled>🥪 サンドイッチ弁当</button>
             </div>
           </div>
           <aside class="chef-rate">
@@ -38,7 +38,7 @@
             <div class="rate-copy"><span>本日の<br>達成率</span><strong id="todayPct">0%</strong><small id="todayCount">0 / 0 完了</small></div>
           </aside>
         </div>
-        <p class="bento-note" id="bentoNote">DAILY ROUTINEを100％達成した日数に応じて、お弁当が完成していくよ。</p>
+        <p class="bento-note" id="bentoNote">今週のお弁当は週の初めにランダムで決まります。週の途中では変更できません。</p>
       </section>
 
       <section class="todo-panel">
@@ -58,6 +58,7 @@
         <h2>今月のチャレンジ</h2><div class="month-rate"><strong id="monthPct">0%</strong><span>月間達成率</span></div>
         <div class="bar"><i id="monthBar"></i></div><div id="unlockText" class="hint"></div>
       </section>
+      <section class="simple-card"><h2 id="waterCalendarTitle">今月の水位カレンダー</h2><div class="water-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div><div id="monthWaterCalendar" class="water-calendar" aria-label="今月のDAILY ROUTINE達成率"></div><p class="hint">丸の水位は、その日のDAILY ROUTINE達成率を表します。</p></section>
       <section class="simple-card"><h2>お弁当の記録</h2><div id="bentoHistory" class="history-list"></div></section>
       <section class="simple-card"><h2>タスクアーカイブ</h2><p class="hint">HOMEから移動したタスクを保管します。</p><div id="completedTasks"></div></section>
       <section class="simple-card"><h2>バックアップ</h2><div class="backup-actions"><button id="exportData">JSONを書き出す</button><label class="file-btn">JSONを読み込む<input type="file" id="importData" accept="application/json"></label></div></section>
@@ -79,7 +80,7 @@
 <dialog id="taskActionDialog" class="dialog">
  <div class="dialog-title"><h2 id="taskActionTitle">タスクの操作</h2><button type="button" id="closeTaskAction">×</button></div>
  <p class="hint">このタスクに対する操作を選んでください。</p>
- <div class="dialog-actions vertical"><button id="actionEdit" class="soft-btn">編集する</button><button id="actionArchive" class="main-btn">HOMEから非表示にする</button></div>
+ <div class="dialog-actions vertical"><button id="actionEdit" class="soft-btn">編集</button><button id="actionDelete" class="main-btn">削除</button></div>
 </dialog>
 <dialog id="archiveConfirm" class="dialog"><h2>HOMEから非表示</h2><p>本当にHOME画面のリストから消して良いか？</p><div class="dialog-actions"><button id="cancelArchive" class="soft-btn">キャンセル</button><button id="confirmArchive" class="main-btn">移動する</button></div></dialog>
 <dialog id="memoDialog" class="dialog">
